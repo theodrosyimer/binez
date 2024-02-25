@@ -41,8 +41,18 @@
 
 ### Install
 
-```sh
+<!-- ```sh
 npm install -g @thyi/binez
+``` -->
+
+**TODO**: Publish to npm
+
+```sh
+git clone https://github.com/theodrosyimer/binez@latest
+cd binez
+npm install
+npm run build
+npm link
 ```
 
 ## Usage
