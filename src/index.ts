@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { commanderCliExample } from './examples/1.js'
+import { binezCli } from './binez.js'
 
-commanderCliExample.parse()
+binezCli.parse()
