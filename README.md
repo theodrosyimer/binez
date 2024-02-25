@@ -12,6 +12,7 @@
   - [Commands](#commands)
     - [`convert` `<number>` \[ `-l` `--locale` = 'en-US' \]](#convert-number---l---locale--en-us-)
     - [`range` \[ \[ `-b` `--bits` | `-B` `--bytes` | `-s` `--signed` \] `<number>` \]\[ `-l` `--locale` = 'en-US' \]](#range----b---bits---b---bytes---s---signed--number---l---locale--en-us-)
+    - [`mem` `-b`\[ `--bits` \] `<number>` `-ms` \[ `--memory-size` \] `<number>` \[ `-l` `--locale` = 'en-US' \]](#mem--b---bits--number--ms----memory-size--number---l---locale--en-us-)
 - [Contribute](#contribute)
   - [Clone the repo](#clone-the-repo)
   - [Install dependencies](#install-dependencies)
@@ -127,6 +128,7 @@ Calculate the range of a given number of bits
 
 ```sh
 binez range -b <bits>
+```
 
 Calculate the range of a given number of bytes
 
@@ -134,13 +136,13 @@ Calculate the range of a given number of bytes
 binez range -B <bytes>
 ```
 
-<!-- #### `mem`
+#### `mem` `-b`[ `--bits` ] `<number>` `-ms` [ `--memory-size` ] `<number>` [ `-l` `--locale` = 'en-US' ]
 
 Calculate the size limit of a given number of bits in a given memory size in kilobytes
 
 ```sh
 binez mem -b <bits> -s <signed>
-``` -->
+```
 
 ## Contribute
 
