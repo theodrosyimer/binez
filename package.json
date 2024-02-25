@@ -1,0 +1,38 @@
+{
+  "name": "binez",
+  "bin": {
+    "binez": "dist/index.js"
+  },
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "main": "dist/index.js",
+  "eslintConfig": {
+    "root": true
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod +x dist/index.js",
+    "dev": "tsc -w -p tsconfig.json",
+    "link-cli": "(yarn unlink --global || true) && chmod +x dist/index.js && yarn link --global",
+    "lint": "eslint .",
+    "release": "release-it",
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "Theodros Yimer",
+  "license": "MIT",
+  "devDependencies": {
+    "@release-it/conventional-changelog": "^8.0.1",
+    "@thyi/eslint-config": "^1.21.7",
+    "@types/node": "^20.10.6",
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1",
+    "release-it": "^17.0.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.1.1"
+  },
+  "dependencies": {
+    "commander": "^11.1.0"
+  }
+}
