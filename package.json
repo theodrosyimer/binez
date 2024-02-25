@@ -11,9 +11,10 @@
     "root": true
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json && chmod +x dist/index.js",
+    "build": "tsc -p tsconfig.json && chmod 755 dist/index.js",
     "dev": "tsc -w -p tsconfig.json",
-    "link-cli": "(yarn unlink --global || true) && chmod +x dist/index.js && yarn link --global",
+    "dev:reset": "pnpm build && pnpm link-cli && pnpm dev",
+    "link-cli": "(yarn unlink --global || true) && chmod 755 dist/index.js && yarn link --global",
     "lint": "eslint .",
     "release": "release-it",
     "test": "vitest"
