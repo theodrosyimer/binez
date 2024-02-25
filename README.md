@@ -3,6 +3,7 @@
 <details close><summary>Table of Contents</summary>
 
 - [Motivation](#motivation)
+- [Prerequisites](#prerequisites)
 - [Quick start](#quick-start)
   - [Install](#install)
 - [Usage](#usage)
@@ -24,7 +25,9 @@
 
 ## Motivation
 
-<!-- ## Prerequisites -->
+## Prerequisites
+
+- [Node.js](https://nodejs.org/en/download/) (v16.0.0 or higher)
 
 ## Quick start
 
