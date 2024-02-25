@@ -13,8 +13,6 @@
   - [Clone the repo](#clone-the-repo)
   - [Install dependencies](#install-dependencies)
   - [Develop](#develop)
-  - [Link the project](#link-the-project)
-  - [Build the project](#build-the-project)
   - [Run tests](#run-tests)
   - [Submit a pull request](#submit-a-pull-request)
 - [License](#license)
@@ -60,20 +58,20 @@ npm install
 
 ### Develop
 
-```sh
-npm run dev
-```
-
-### Link the project
+To start developing, you will need to first link the project to the global `@thyi/binez` package.
 
 ```sh
 npm run link-cli
 ```
 
-### Build the project
+Then build the project and start the development server.
 
 ```sh
 npm run build
+```
+
+```sh
+npm run dev
 ```
 
 ### Run tests
