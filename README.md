@@ -124,13 +124,13 @@ binez convert <number>
 
 #### `range` [ [ `-b` `--bits` | `-B` `--bytes` | `-s` `--signed` ] `<number>` ][ `-l` `--locale` = 'en-US' ]
 
-Calculate the range of a given number of bits
+Calculate the range of a given unsigned number in bits
 
 ```sh
 binez range -b <bits>
 ```
 
-Calculate the range of a given number of bytes
+Calculate the range in a given unsigned number in bytes
 
 ```sh
 binez range -B <bytes>
@@ -138,10 +138,10 @@ binez range -B <bytes>
 
 #### `mem` `-b`[ `--bits` ] `<number>` `-ms` [ `--memory-size` ] `<number>` [ `-l` `--locale` = 'en-US' ]
 
-Calculate the size limit of a given number of bits in a given memory size in kilobytes
+Calculate the size limit of a given unsigned number in bits in a given memory size in kilobytes
 
 ```sh
-binez mem -b <bits> -s <signed>
+binez mem -b <bits> -ms <memory-size> -l <locale>
 ```
 
 ## Contribute
