@@ -1,5 +1,8 @@
 import { Command } from 'commander'
 
+import { bitsHandler, bytesHandler } from './range.js'
+import { formatNumber, convertMBToBytes, calculateMemorySize } from './utils.js'
+
 export const binezCli = new Command()
 
 binezCli
@@ -10,83 +13,76 @@ binezCli
 binezCli
   .command('convert')
   .description('Convert a given number of megabytes to bytes')
-  .argument('<string>', 'string to process')
-  .option('-l, --locale', 'locale to use for formatting', 'en-US')
+  .argument('<number>', 'number in megabytes to convert to bytes')
+  .option(
+    '-l, --locale <locale>',
+    'locale to use for formatting, default to `en-US`',
+    'en-US',
+  )
   .action(
     (
-      str: string,
+      mb: number,
       options: {
         locale: string
       },
     ) => {
-      let result = str
+      let result = ''
       if (options.locale) {
-        result = result.toLowerCase()
+        result = formatNumber(convertMBToBytes(mb), options.locale)
       }
       console.log(result)
     },
   )
 
 binezCli
-  .command('calc')
-  .description('Reverse a string')
-  .argument('<string>', 'string to reverse')
-  .action((str: string) => {
-    console.log(str.split('').reverse().join(''))
+  .command('range')
+  .description('Calculate the range of a given number of bits')
+  .option('-b, --bits <bits>', 'bits to calculate the range of')
+  .option('-B, --bytes <bytes>', 'bytes to calculate the range of')
+  .option('-s, --signed', 'return a signed range')
+  .option(
+    '-l, --locale <locale>',
+    'locale to use for formatting, default to `en-US`',
+    'en-US',
+  )
+  .action(
+    (options: {
+      bytes: number
+      bits: number
+      signed: boolean
+      locale: string
+    }) => {
+      let result: string | undefined
+
+      if (options.bits) {
+        result = bitsHandler(options)
+      }
+
+      if (options.bytes) {
+        result = bytesHandler(options)
+      }
+
+      console.log(result)
+    },
+  )
+
+binezCli
+  .command('mem')
+  .description(
+    'Calculate the size limit of a given memory size in kilobytes for a given number in bits',
+  )
+  .option('-b, --bits <bits>', 'size number in bits')
+  .option('-ms, --memory-size <memory-size>', 'memory size in kilobytes', '32')
+  .option(
+    '-l, --locale <locale>',
+    'locale to use for formatting, default to `en-US`',
+    'en-US',
+  )
+  .action((options: { bits: number; memorySize: number; locale: string }) => {
+    const calculatedValue = calculateMemorySize(
+      options.bits,
+      options.memorySize,
+    )
+
+    console.log(formatNumber(calculatedValue, options.locale))
   })
-
-/**
- * Convert a given number of megabytes to bytes
- *
- * @param mb number of megabytes to convert to bytes
- */
-function convertMBToBytes(mb: number) {
-  return mb * 1024 * 1024
-}
-
-/**
- * Ca
- * @param dataStorageSize size of data storage in `kilobytes`, `32` means `32kb`
- * @param numberBitSize size in `bits` of the numeric value type
- */
-function calculateDataStorageLimit(dataStorageSize: number, bitsSize: number) {
-  return (dataStorageSize * 1024) / (bitsSize / 8)
-}
-
-/**
- *
- * @param bitsSize size in `bits` of the numeric value type. A positive value means return an `unsigned` range, a negative value means return a `signed` range
- */
-function calculateValueRangeFromNumberBitsSize(bitsSize: number) {
-  let half = 0
-  if (Math.sign(bitsSize) === -1) {
-    half = 256 ** (-bitsSize / 8) / 2
-
-    return [-half, half - 1]
-  }
-
-  return [0, 256 ** (bitsSize / 8) - 1]
-}
-
-/**
- *
- * @param bytes size in `bytes` of the numeric value type. A positive value means return an `unsigned` range, a negative value means return a `signed` range
- */
-function calculateValueRangeFromBytes(bytes: number) {
-  let half = 0
-  if (Math.sign(bytes) === -1) {
-    half = 256 ** -bytes / 2
-
-    return [-half, half - 1]
-  }
-
-  return [0, 256 ** bytes - 1]
-}
-
-/**
- * @param value value to convert
- * @param locale locale to use for formatting
- */
-function formatNumber(value: number | bigint, locale = 'en-US') {
-  return Intl.NumberFormat(locale).format(value)
-}
