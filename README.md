@@ -9,7 +9,9 @@
 - [Usage](#usage)
   - [Examples](#examples)
 - [Documentation](#documentation)
-  - [Commands](#commands)
+  - [convert](#convert)
+  - [range](#range)
+  - [mem](#mem)
 - [Contribute](#contribute)
   - [Clone the repo](#clone-the-repo)
   - [Install dependencies](#install-dependencies)
@@ -101,15 +103,15 @@ For example, to convert a number of bits to bytes in French, you can use the fol
 binez range -b 16 -l fr
 ```
 
-To see the list of supported locales, you can use the following command (**not implemented**, it's not really necessary but it can be added):
+<!-- To see the list of supported locales, you can use the following command (**not implemented**, it's not really necessary but it can be added):
 
 ```sh
 binez locales
-```
+``` -->
 
 ## Documentation
 
-### Commands
+### convert
 
 `convert` `<number>` [ `-l` `--locale` = 'en-US' ]
 
@@ -118,6 +120,8 @@ Convert a given number of megabytes to bytes:
 ```sh
 binez convert <number>
 ```
+
+### range
 
 `range` [ [ `-b` `--bits` | `-B` `--bytes` ] `<number>` ][ `-l` `--locale` = 'en-US' ]
 
@@ -137,6 +141,8 @@ binez range -B <bytes> -l <locale>
 >
 > 1. The maximum number of bits for which the range can be calculated is 512 and the maximum number of bytes for which the range can be calculated is 64. This is because the maximum number of bits for which a number can be represented in JavaScript is 2^53 - 1 and the maximum number of bytes for which a number can be represented in JavaScript is 2^53 - 1 / 8.
 > 2. The `-l` or `--locale` flag return an error message if the locale is not supported by the `Intl` object in JavaScript and seems to be constraint to be a string of length between 2 and 8. This is because the `Intl` object in JavaScript only supports locales that are between 2 and 8 characters long.
+
+### mem
 
 `mem` `-b`[ `--bits` ] `<number>` `-ms` [ `--memory-size` ] `<number>` [ `-l` `--locale` = 'en-US' ]
 
