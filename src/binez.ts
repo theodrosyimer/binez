@@ -8,7 +8,7 @@ export const binezCli = new Command()
 binezCli
   .name('binez')
   .version('0.0.1', '-v, --version', 'output the current version')
-  .description('CLI to calculate or convert binary numbers!')
+  .description('CLI to help with various binary calculations and conversions!')
 
 binezCli
   .command('convert')
