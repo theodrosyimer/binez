@@ -193,8 +193,6 @@ To start/reset the development environment in one command, you can use the follo
 
 ### Run tests
 
-**TODO**: Add tests
-
 ```sh
 npm test
 ```
