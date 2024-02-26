@@ -65,13 +65,13 @@ Convert 6MB to bytes:
 binez convert 6
 ```
 
-Calculate the range of a given number of unsigned bits (default):
+Calculate the range of a given number of unsigned bits:
 
 ```sh
 binez range -b 8
 ```
 
-Calculate the range of a given number of unsigned bytes (default):
+Calculate the range of a given number of unsigned bytes:
 
 ```sh
 binez range -B 2
