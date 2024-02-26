@@ -14,8 +14,8 @@ devDependencies:
     specifier: ^8.0.1
     version: 8.0.1(release-it@17.1.1)
   '@thyi/eslint-config':
-    specifier: ^1.26.2
-    version: 1.26.2(@babel/core@7.23.9)(eslint@8.57.0)(prettier@3.2.5)(typescript@5.3.3)
+    specifier: ^1.27.2
+    version: 1.27.2(@babel/core@7.23.9)(eslint@8.57.0)(prettier@3.2.5)(typescript@5.3.3)
   '@types/node':
     specifier: ^20.11.20
     version: 20.11.20
@@ -962,8 +962,8 @@ packages:
       defer-to-connect: 2.0.1
     dev: true
 
-  /@thyi/eslint-config@1.26.2(@babel/core@7.23.9)(eslint@8.57.0)(prettier@3.2.5)(typescript@5.3.3):
-    resolution: {integrity: sha512-z6iWiz2MWaTASN/WQ6HZWoHxyQfIIdsTtpn7121plS04RRK42emy/tiFyyXrHs50mAfkU9NC5NLMwccYqHKPmg==}
+  /@thyi/eslint-config@1.27.2(@babel/core@7.23.9)(eslint@8.57.0)(prettier@3.2.5)(typescript@5.3.3):
+    resolution: {integrity: sha512-x0YSd/gQn/NxXTgqoHIZ8Mw82gqLX9JBpRvt+Kb272nbG0wTzhyJUFuiKd/uXpTvUZp+jajnXXyVbj+Botlz6Q==}
     requiresBuild: true
     peerDependencies:
       eslint: ^8.56.0

@@ -1,10 +1,11 @@
 {
   "name": "binez",
+  "version": "0.0.0",
+  "private": true,
   "bin": {
     "binez": "dist/index.js"
   },
-  "version": "0.0.0",
-  "description": "",
+  "description": "CLI to help with various binary calculations and conversions.",
   "type": "module",
   "main": "dist/index.js",
   "eslintConfig": {
@@ -13,7 +14,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json && chmod 755 dist/index.js",
     "dev": "tsc -w -p tsconfig.json",
-    "dev:reset": "pnpm build && pnpm link-cli && pnpm dev",
+    "dev:reset": "(rm -rf dist || true) && pnpm build && pnpm link-cli && pnpm dev",
     "link-cli": "(yarn unlink --global || true) && chmod 755 dist/index.js && yarn link --global",
     "lint": "eslint .",
     "release": "release-it",
@@ -24,7 +25,7 @@
   "license": "MIT",
   "devDependencies": {
     "@release-it/conventional-changelog": "^8.0.1",
-    "@thyi/eslint-config": "^1.26.2",
+    "@thyi/eslint-config": "^1.27.2",
     "@types/node": "^20.11.20",
     "eslint": "^8.57.0",
     "prettier": "^3.2.5",
