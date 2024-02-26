@@ -18,10 +18,10 @@
   "include": [
     "src",
     "vitest.config.ts",
+    "tests"
   ],
   "exclude": [
     "node_modules",
     "dist",
-    "tests"
   ]
 }
