@@ -10,9 +10,6 @@
   - [Examples](#examples)
 - [Documentation](#documentation)
   - [Commands](#commands)
-    - [`convert` `<number>` \[ `-l` `--locale` = 'en-US' \]](#convert-number---l---locale--en-us-)
-    - [`range` \[ \[ `-b` `--bits` | `-B` `--bytes` | `-s` `--signed` \] `<number>` \]\[ `-l` `--locale` = 'en-US' \]](#range----b---bits---b---bytes---s---signed--number---l---locale--en-us-)
-    - [`mem` `-b`\[ `--bits` \] `<number>` `-ms` \[ `--memory-size` \] `<number>` \[ `-l` `--locale` = 'en-US' \]](#mem--b---bits--number--ms----memory-size--number---l---locale--en-us-)
 - [Contribute](#contribute)
   - [Clone the repo](#clone-the-repo)
   - [Install dependencies](#install-dependencies)
@@ -81,13 +78,13 @@ binez range -B 2
 Calculate the range of a given number of signed bits:
 
 ```sh
-binez range -sb 8
+binez range -b -8
 ```
 
 Calculate the range of a given number of signed bytes:
 
 ```sh
-binez range -sB 2
+binez range -B -2
 ```
 
 Calculate the size limit of a given number in bits in a given memory size in kilobytes:
@@ -101,7 +98,7 @@ For both the `range` and `size` commands, you can use the `-l` or `--locale` fla
 For example, to convert a number of bits to bytes in French, you can use the following command:
 
 ```sh
-binez range -sb 16 -l fr
+binez range -b 16 -l fr
 ```
 
 To see the list of supported locales, you can use the following command (**not implemented**, it's not really necessary but it can be added):
@@ -114,31 +111,36 @@ binez locales
 
 ### Commands
 
-#### `convert` `<number>` [ `-l` `--locale` = 'en-US' ]
+`convert` `<number>` [ `-l` `--locale` = 'en-US' ]
 
-Convert a given number of megabytes to bytes
+Convert a given number of megabytes to bytes:
 
 ```sh
 binez convert <number>
 ```
 
-#### `range` [ [ `-b` `--bits` | `-B` `--bytes` | `-s` `--signed` ] `<number>` ][ `-l` `--locale` = 'en-US' ]
+`range` [ [ `-b` `--bits` | `-B` `--bytes` ] `<number>` ][ `-l` `--locale` = 'en-US' ]
 
-Calculate the range of a given unsigned number in bits
-
-```sh
-binez range -b <bits>
-```
-
-Calculate the range in a given unsigned number in bytes
+Calculate the range of a given unsigned/signed number in bits:
 
 ```sh
-binez range -B <bytes>
+binez range -b <bits> -l <locale>
 ```
 
-#### `mem` `-b`[ `--bits` ] `<number>` `-ms` [ `--memory-size` ] `<number>` [ `-l` `--locale` = 'en-US' ]
+Calculate the range in a given unsigned/signed number in bytes:
 
-Calculate the size limit of a given unsigned number in bits in a given memory size in kilobytes
+```sh
+binez range -B <bytes> -l <locale>
+```
+
+> NOTE:
+>
+> 1. The maximum number of bits for which the range can be calculated is 512 and the maximum number of bytes for which the range can be calculated is 64. This is because the maximum number of bits for which a number can be represented in JavaScript is 2^53 - 1 and the maximum number of bytes for which a number can be represented in JavaScript is 2^53 - 1 / 8.
+> 2. The `-l` or `--locale` flag return an error message if the locale is not supported by the `Intl` object in JavaScript and seems to be constraint to be a string of length between 2 and 8. This is because the `Intl` object in JavaScript only supports locales that are between 2 and 8 characters long.
+
+`mem` `-b`[ `--bits` ] `<number>` `-ms` [ `--memory-size` ] `<number>` [ `-l` `--locale` = 'en-US' ]
+
+Calculate the size limit of a given unsigned number in bits in a given memory size in kilobytes:
 
 ```sh
 binez mem -b <bits> -ms <memory-size> -l <locale>
