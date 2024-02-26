@@ -1,6 +1,6 @@
 import { Command } from 'commander'
 
-import { bitsHandler, bytesHandler } from './range.js'
+import { handleBits, handleBytes } from './range.js'
 import { formatNumber, convertMBToBytes, calculateMemorySize } from './utils.js'
 
 export const binezCli = new Command()
@@ -8,7 +8,38 @@ export const binezCli = new Command()
 binezCli
   .name('binez')
   .version('0.0.1', '-v, --version', 'output the current version')
-  .description('CLI to help with various binary calculations and conversions!')
+  .description('CLI to help with various binary calculations and conversions.')
+
+binezCli
+  .command('range')
+  .description('Calculate the range of a given number of bits')
+  .option('-b, --bits <bits>', 'bits to calculate the range of')
+  .option('-B, --bytes <bytes>', 'bytes to calculate the range of')
+  .option(
+    '-l, --locale <locale>',
+    'locale to use for formatting, default to `en-US`',
+    'en-US',
+  )
+  .action(
+    (options: {
+      bytes: string
+      bits: string
+      // signed: boolean
+      locale: string
+    }) => {
+      let result: string | undefined
+
+      if (options.bits) {
+        result = handleBits(options)
+      }
+
+      if (options.bytes) {
+        result = handleBytes(options)
+      }
+
+      console.log(result)
+    },
+  )
 
 binezCli
   .command('convert')
@@ -30,38 +61,6 @@ binezCli
       if (options.locale) {
         result = formatNumber(convertMBToBytes(mb), options.locale)
       }
-      console.log(result)
-    },
-  )
-
-binezCli
-  .command('range')
-  .description('Calculate the range of a given number of bits')
-  .option('-b, --bits <bits>', 'bits to calculate the range of')
-  .option('-B, --bytes <bytes>', 'bytes to calculate the range of')
-  .option('-s, --signed', 'return a signed range')
-  .option(
-    '-l, --locale <locale>',
-    'locale to use for formatting, default to `en-US`',
-    'en-US',
-  )
-  .action(
-    (options: {
-      bytes: number
-      bits: number
-      signed: boolean
-      locale: string
-    }) => {
-      let result: string | undefined
-
-      if (options.bits) {
-        result = bitsHandler(options)
-      }
-
-      if (options.bytes) {
-        result = bytesHandler(options)
-      }
-
       console.log(result)
     },
   )
