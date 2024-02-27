@@ -71,17 +71,14 @@ binezCli
     'Calculate the size limit of a given memory size in kilobytes for a given number in bits',
   )
   .option('-b, --bits <bits>', 'size number in bits')
-  .option('-ms, --memory-size <memory-size>', 'memory size in kilobytes', '32')
+  .option('-s, -size <memory-size>', 'memory size in kilobytes', '32')
   .option(
     '-l, --locale <locale>',
     'locale to use for formatting, default to `en-US`',
     'en-US',
   )
-  .action((options: { bits: number; memorySize: number; locale: string }) => {
-    const calculatedValue = calculateMemorySize(
-      options.bits,
-      options.memorySize,
-    )
+  .action((options: { bits: number; size: number; locale: string }) => {
+    const calculatedValue = calculateMemorySize(options.bits, options.size)
 
     console.log(formatNumber(calculatedValue, options.locale))
   })
