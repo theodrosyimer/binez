@@ -95,7 +95,7 @@ Calculate the size limit of a given number in bits in a given memory size in kil
 binez mem -b 16 -ms 32
 ```
 
-For both the `range` and `size` commands, you can use the `-l` or `--locale` flag to specify the locale to use for formatting the output. The default locale is `en-US`. The supported locales are the same as those supported by the `Intl` object in JavaScript and can be found [here as text](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) or [here as json](https://github.com/mattcg/language-subtag-registry/blob/master/data/json/registry.json) if you prefer.
+For both the `range` and `mem` commands, you can use the `-l` or `--locale` flag to specify the locale to use for formatting the output. The default locale is `en-US`. The supported locales are the same as those supported by the `Intl` object in JavaScript and can be found [here as text](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) or [here as json](https://github.com/mattcg/language-subtag-registry/blob/master/data/json/registry.json) if you prefer.
 
 For example, to convert a number of bits to bytes in French, you can use the following command:
 
