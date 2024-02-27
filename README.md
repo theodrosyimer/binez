@@ -26,7 +26,7 @@
 
 ## Motivation
 
-I was working on a project where I had to calculate the range of a given number of bits and the size limit of a given number of bits in a given memory size in kilobytes. I found myself constantly having to do the same calculations over and over again and I was getting frustrated. So,`binez` was born out of that frustration. It's a simple command line tool that can do the following:
+I was working on a project where I had to calculate the range of a given number of bits and the size limit of a given number of bits in a given memory size in kilobytes for base 2 (binary). I found myself constantly having to do the same calculations over and over again and I was getting frustrated. So,`binez` was born out of that frustration. It's a simple command line tool that can do the following:
 
 - convert a given number in megabytes to bytes (e.g. 1MB to 1_048_576 bytes)
 - calculate the range of a given number of bits (e.g. for an unsigned 8 bits, the range is 0-255)
