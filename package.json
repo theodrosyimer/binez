@@ -14,8 +14,8 @@
   "scripts": {
     "build": "tsc -p tsconfig.json && chmod 755 dist/index.js",
     "dev": "tsc -w -p tsconfig.json",
-    "dev:reset": "(rm -rf dist || true) && pnpm build && pnpm link-cli && pnpm dev",
-    "link-cli": "(yarn unlink --global || true) && chmod 755 dist/index.js && yarn link --global",
+    "dev:reset": "(rm -rf dist || true) && npm run build && npm run link && npm run dev",
+    "link": "(yarn unlink --global || true) && chmod 755 dist/index.js && yarn link --global",
     "lint": "eslint .",
     "release": "release-it",
     "test": "vitest"
