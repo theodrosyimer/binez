@@ -35,7 +35,7 @@ I was working on a project where I had to calculate the range of a given number 
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/en/download/) (v16.0.0 or higher)
+- [Node.js](https://nodejs.org/en/download/) (v22.18.0 or higher)
 
 ## Quick start
 
@@ -51,8 +51,7 @@ npm install -g @thyi/binez
 git clone https://github.com/theodrosyimer/binez@latest
 cd binez
 npm install
-npm run build
-npm link
+npm run build-link
 ```
 
 ## Usage
