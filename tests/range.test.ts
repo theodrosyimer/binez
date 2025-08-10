@@ -1,6 +1,6 @@
-import { expect, test, describe } from 'vitest'
+import { describe, expect, test } from 'vitest'
 
-import { handleBits, handleBytes } from '../src/range.js'
+import { handleBits, handleBytes } from '../src/lib/range.js'
 
 describe('range sub-command', () => {
   describe('handleBits function', () => {

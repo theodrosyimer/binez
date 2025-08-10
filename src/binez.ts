@@ -1,8 +1,8 @@
 import { Command } from 'commander'
 
-import { handleBits, handleBytes } from './lib/range.js'
 import { convertMBToBytes } from './lib/convert.js'
 import { calculateMemorySize } from './lib/mem.js'
+import { handleBits, handleBytes } from './lib/range.js'
 import { formatNumber } from './lib/utils.js'
 
 export const binezCli = new Command()
