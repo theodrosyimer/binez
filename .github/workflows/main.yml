@@ -1,4 +1,4 @@
-name: CI
+name: Lint, Test & Build
 on:
   push:
     branches:
@@ -33,5 +33,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Lint & Test & Build
+      - name: Lint, Test & Build
         run: pnpm lint && pnpm test && pnpm build
