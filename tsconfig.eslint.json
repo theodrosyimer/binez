@@ -1,17 +1,9 @@
 {
-  "display": "Node LTS",
-  "_version": "20.1.0",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "allowJs": true,
-    "noEmit": true,
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "target": "es2023",
-    "strict": true,
-    "noUncheckedIndexedAccess": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "noEmit": true
   },
   "include": [
     "src/**/*",
