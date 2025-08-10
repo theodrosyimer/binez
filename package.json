@@ -12,10 +12,12 @@
     "root": true
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json && chmod 755 dist/index.js",
+    "build": "pnpm clean && tsc -p tsconfig.json && chmod 755 dist/index.js",
+    "build-link": "pnpm build && pnpm link-cli",
+    "clean": "shx rm -rf dist/*",
     "dev": "tsc -w -p tsconfig.json",
-    "dev:reset": "(rm -rf dist || true) && npm run build && npm run link && npm run dev",
-    "link": "(yarn unlink --global || true) && chmod 755 dist/index.js && yarn link --global",
+    "dev:reset": "pnpm build-link && pnpm dev",
+    "link-cli": "(yarn unlink --global || true) && chmod 755 dist/index.js && yarn link --global",
     "lint": "eslint .",
     "release": "release-it",
     "test": "vitest"
@@ -23,18 +25,23 @@
   "keywords": [],
   "author": "Theodros Yimer",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
-    "@release-it/conventional-changelog": "^8.0.1",
-    "@thyi/eslint-config": "^1.27.2",
-    "@types/node": "^20.11.20",
-    "eslint": "^8.57.0",
-    "prettier": "^3.2.5",
-    "release-it": "^17.1.1",
-    "tsx": "^4.7.1",
-    "typescript": "^5.3.3",
-    "vitest": "^1.3.1"
+    "@release-it/conventional-changelog": "^10.0.1",
+    "@thyi/eslint-config": "file:/Users/ty/dev/projects/personal/eslint-config",
+    "@types/node": "^24.2.1",
+    "eslint": "^9.33.0",
+    "prettier": "^3.6.2",
+    "release-it": "^19.0.4",
+    "shx": "^0.4.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.1",
+    "vitest": "^3.2.4"
   },
   "dependencies": {
-    "commander": "^12.0.0"
+    "commander": "^14.0.0"
   }
 }
