@@ -3,7 +3,7 @@
   "_version": "20.1.0",
   "compilerOptions": {
     "allowJs": true,
-    "outDir": "dist",
+    "noEmit": true,
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "target": "es2023",
