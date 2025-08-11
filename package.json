@@ -30,7 +30,7 @@
   ],
   "devDependencies": {
     "@release-it/conventional-changelog": "^10.0.1",
-    "@thyi/eslint-config": "file:/Users/ty/dev/projects/personal/eslint-config",
+    "@thyi/eslint-config": "^2.0.12",
     "@types/node": "^24.2.1",
     "eslint": "^9.33.0",
     "prettier": "^3.6.2",
