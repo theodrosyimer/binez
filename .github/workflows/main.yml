@@ -5,7 +5,7 @@ on:
       - '**'
 
 jobs:
-  lint-and-build:
+  lint-test-and-build:
     runs-on: ubuntu-latest
 
     strategy:
